@@ -7,7 +7,6 @@ type Props = {
     children: React.ReactNode;
 };
 const DetailsLayout: React.FC<Props> = ({children}) => {
-//TODO: go back to search button
     const navigate = useNavigate();
 
     const handleClick = () => {

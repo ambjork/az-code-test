@@ -11,21 +11,21 @@ const ShowContainer = ({shows, loading, error}: Props) => {
     if (loading) {
         return (
             <div className="container">
-                <Typography variant={"h6"}>Searching...</Typography>
+                <Typography variant={"h6"}>Loading...</Typography>
             </div>
         )
     }
 
     if (error) {
+        console.error(error);
         return (
             <div className="container">
-                <Typography variant={"h6"} color={"text-error"}>{error.message}</Typography>
+                <Typography variant={"h6"} color={"text-error"}>Something went wrong. Please try again later.</Typography>
             </div>
-        )
+        );
     }
 
     if (shows) {
-        //TODO: on the first search, don't show this message
         if (shows.length === 0) {
             return (
                 <div className="container">

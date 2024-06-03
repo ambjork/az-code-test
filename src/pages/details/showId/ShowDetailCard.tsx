@@ -1,7 +1,9 @@
 import Typography from "../../../components/ui/typography/Typography.tsx";
+import {DetailedTVShow} from "../../../types/TVShow.ts";
+import DOMPurify from 'dompurify';
 
 type Props = {
-    show: any
+    show: DetailedTVShow
 }
 const ShowDetailCard = ({show}: Props) => {
     if (show) {
@@ -13,11 +15,11 @@ const ShowDetailCard = ({show}: Props) => {
                 <Typography variant={"body-small"}>Type: {show.type || 'n/a'}</Typography>
                 <Typography variant={"body-small"}>Genres: {show.genres.join(', ') || 'n/a'}</Typography>
                 <Typography variant={"body-small"}>Status: {show.status || 'n/a'}</Typography>
-                <Typography variant={"body-small"}>Runtime: {show.runtime || 'n/a'} mins</Typography>
+                <Typography variant={"body-small"}>Runtime: {`${show.runtime} mins` || 'n/a'}</Typography>
                 <Typography
                     variant={"body-small"}>Dates: {show.premiered || 'n/a'} to {show.ended || 'n/a'}</Typography>
                 <Typography variant={"body-small"}>Average Runtime: {show.averageRuntime || 'n/a'} mins</Typography>
-                <Typography variant={"body-small"}>Average Rating: {show.rating.average || 'n/a'}</Typography>
+                <Typography variant={"body-small"}>Average Rating: {show.rating?.average || 'n/a'}</Typography>
                 <Typography variant={"body-small"}>Official Site: {show.officialSite ?
                     <a href={show.officialSite}>
                         {show.officialSite}
@@ -26,8 +28,7 @@ const ShowDetailCard = ({show}: Props) => {
                 </Typography>
                 <br/>
                 <Typography variant={"body-small"}>
-                    {/*TODO: sanitize dangerouslySetInnerHTML with DOMPurify.sanitize()*/}
-                    {show.summary && <p dangerouslySetInnerHTML={{__html: show.summary}}/>}
+                    {show.summary && <p dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(show.summary)}}/>}
                 </Typography>
             </div>
         )

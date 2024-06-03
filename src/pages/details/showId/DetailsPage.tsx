@@ -3,13 +3,13 @@ import Layout from "./layout.tsx";
 import Typography from "../../../components/ui/typography/Typography.tsx";
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
-import {TVShow} from "../../../types/TVShow.ts";
+import {DetailedTVShow} from "../../../types/TVShow.ts";
 import ShowDetailCard from "./ShowDetailCard.tsx";
 
 const DetailsPage = () => {
     const {showId} = useParams();
     const {result, loading, error} = useSelectedShow(showId);
-    const [show, setShow] = useState<TVShow>();
+    const [show, setShow] = useState<DetailedTVShow>();
 
     useEffect(() => {
         setShow(result);
@@ -37,9 +37,9 @@ const DetailsPage = () => {
 
     if (show) {
         return (
-        <Layout>
-            <ShowDetailCard show={show}/>
-        </Layout>
+            <Layout>
+                <ShowDetailCard show={show}/>
+            </Layout>
         )
     }
 }

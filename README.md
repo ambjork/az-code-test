@@ -6,6 +6,12 @@ run npm dev
 
 Visit http://localhost:5173/
 
+# Run tests
+
+```
+run npm test
+```
+
 # If I had more time I would have:
 
 - store state in search string when returning from detail view.
