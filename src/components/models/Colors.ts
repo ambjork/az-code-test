@@ -1,0 +1,16 @@
+export type TextColors =
+  | "text-primary-dark-blue"
+  | "text-primary-yellow-62"
+  | "text-primary-violet-94"
+  | "text-primary-green-32"
+  | "text-primary-pink-92"
+  | "text-white"
+  | "text-black"
+  | "text-error"
+  | "text-success"
+  | "text-grey-96"
+  | "text-grey-88"
+  | "text-grey-72"
+  | "text-grey-48"
+  | "text-grey-24"
+  | "text-grey-8";
